@@ -27,7 +27,12 @@ wk.register({
       f = { require'telescope.builtin'.find_files, 'Find files' },
       g = { require'telescope.builtin'.live_grep, 'Live grep' },
       h = { require'telescope.builtin'.help_tags, 'Help tags' },
-      o = { require'telescope.builtin'.oldfiles, 'Previously opened files' }
+      o = { require'telescope.builtin'.oldfiles, 'Previously opened files' },
+      ['.'] = { function()
+        require'telescope.builtin'.find_files {
+          cwd = '~/.config/home-manager'
+        }
+      end, 'Dotfiles' }
     },
     g = {
       name = 'Git',
