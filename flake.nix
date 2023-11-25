@@ -24,6 +24,7 @@
       };
       username = "severij";
     in {
+      packages."${system}".default = home-manager.defaultPackage."${system}";
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home.nix ];
