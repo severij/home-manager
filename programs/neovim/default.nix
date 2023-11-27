@@ -117,6 +117,7 @@ in
       type = "lua";
       config = readFile ./lsp.lua;
     }
+    nvim-notify
     nvim-treesitter.withAllGrammars
     nvim-web-devicons
     plenary-nvim
