@@ -11,6 +11,8 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.nil_ls.setup{}
+lspconfig.clojure_lsp.setup{}
+lspconfig.pyright.setup{}
 
 -- Keymaps
 local opts = { noremap = true, silent = true }

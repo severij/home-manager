@@ -21,10 +21,12 @@ in
     homeDirectory = "/home/${username}";
     packages = with pkgs; [
       bottom
+      clojure-lsp
       iosevka
       lua-language-server
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
       nil
+      pyright
       tmux
     ];
     sessionVariables = {
