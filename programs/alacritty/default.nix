@@ -12,7 +12,7 @@
     ];
     font = {
       normal = {
-        family = "Iosevka";
+        family = "Iosevka NF";
         style = "Regular";
       };
       size = 14;

@@ -47,7 +47,7 @@ in
     kitty = {
       enable = true;
       font = {
-        name = "Iosevka";
+        name = "Iosevka NF";
         size = 16;
       };
       settings = with config.colorScheme.colors; {
