@@ -10,9 +10,11 @@ lspconfig.lua_ls.setup {
   }
 }
 
+lspconfig.bashls.setup{}
 lspconfig.nil_ls.setup{}
 lspconfig.clojure_lsp.setup{}
 lspconfig.pyright.setup{}
+lspconfig.tsserver.setup{}
 
 -- Keymaps
 local opts = { noremap = true, silent = true }

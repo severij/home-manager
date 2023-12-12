@@ -25,8 +25,11 @@ in
       iosevka
       lua-language-server
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
+      nodePackages.bash-language-server
+      nodePackages.typescript-language-server
       nil
       pyright
+      shellcheck
       tmux
     ];
     sessionVariables = {
