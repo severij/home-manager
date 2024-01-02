@@ -17,7 +17,7 @@ in
 
   home = {
     inherit username;
-    stateVersion = "23.05"; # Read HM release notes before changing.
+    stateVersion = "23.11"; # Read HM release notes before changing.
     homeDirectory = "/home/${username}";
     packages = with pkgs; [
       bottom
