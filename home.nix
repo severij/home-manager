@@ -23,6 +23,7 @@ in
       bottom
       clojure-lsp
       iosevka
+      jdt-language-server
       lua-language-server
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
       nodePackages.bash-language-server
@@ -76,6 +77,6 @@ in
     };
     lf = import ./programs/lf;
     pistol.enable = true;
-    neovim = import ./programs/neovim { inherit config pkgs; };
+    neovim = import ./programs/neovim { inherit config pkgs username; };
   };
 }

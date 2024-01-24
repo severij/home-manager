@@ -1,6 +1,6 @@
-{ config, pkgs, ...}:
+{ config, pkgs, username, ...}:
 let
-  inherit (builtins) readFile;
+  inherit (builtins) getEnv readFile;
 in
 {
   enable = true;
@@ -111,6 +111,35 @@ in
       plugin = nvim-cmp;
       type = "lua";
       config = readFile ./plugins/cmp.lua;
+    }
+    {
+      plugin = nvim-jdtls;
+      type = "lua";
+      runtime."ftplugin/java.lua".text = ''
+        local config = {
+          cmd = {
+            '${pkgs.jdt-language-server}/bin/jdt-language-server',
+            '-jar', '${pkgs.jdt-language-server}/share/java/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.2.700.v20221108-1024.jar',
+            '-configuration', '/home/${username}/.config/jdtls/config',
+            '-data', '/home/${username}/.cache/jdtls/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+          },
+          root_dir = vim.fs.dirname(vim.fs.find({
+            'build.xml',
+            'pom.xml',
+            'settings.gradle',
+            'settings.gradle.kts',
+            'build.gradle',
+            'build.gradle.kts',
+            'gradlew',
+            '.git',
+            'mvnw'
+          }, { upward = true })[1]),
+          configuration = {
+            updateBuildConfiguration = 'interactive'
+          }
+        }
+        require('jdtls').start_or_attach(config)
+      '';
     }
     {
       plugin = nvim-lspconfig;
